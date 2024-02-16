@@ -18,12 +18,13 @@ class Input extends StatefulWidget {
   /// Creates [Input] widget.
   const Input({
     super.key,
+    this.micColor,
     this.isAttachmentUploading,
     this.onAttachmentPressed,
     required this.onSendPressed,
     this.options = const InputOptions(),
   });
-
+  final Color? micColor;
   /// Whether attachment is uploading. Will replace attachment button with a
   /// [CircularProgressIndicator]. Since we don't have libraries for
   /// managing media in dependencies we have no way of knowing if
@@ -161,6 +162,7 @@ class _InputState extends State<Input> {
               children: [
                 if (widget.onAttachmentPressed != null)
                   AttachmentButton(
+                    micColor: widget.micColor,
                     isLoading: widget.isAttachmentUploading ?? false,
                     onPressed: widget.onAttachmentPressed,
                     padding: buttonPadding,
