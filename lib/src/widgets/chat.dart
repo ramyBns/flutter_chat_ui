@@ -37,6 +37,7 @@ class Chat extends StatefulWidget {
   /// Creates a chat widget.
   const Chat({
     super.key,
+    this.micColor,
     this.audioMessageBuilder,
     this.avatarBuilder,
     this.bubbleBuilder,
@@ -103,7 +104,7 @@ class Chat extends StatefulWidget {
     this.slidableMessageBuilder,
     this.isLeftStatus = false,
   });
-
+  final Color? micColor;
   /// See [Message.audioMessageBuilder].
   final Widget Function(types.AudioMessage, {required int messageWidth})?
       audioMessageBuilder;
@@ -659,6 +660,7 @@ class ChatState extends State<Chat> {
                       ),
                       widget.customBottomWidget ??
                           Input(
+                            micColor: widget.micColor,
                             isAttachmentUploading: widget.isAttachmentUploading,
                             onAttachmentPressed: widget.onAttachmentPressed,
                             onSendPressed: widget.onSendPressed,
