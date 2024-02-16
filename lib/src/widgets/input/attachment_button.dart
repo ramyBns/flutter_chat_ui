@@ -8,11 +8,12 @@ class AttachmentButton extends StatelessWidget {
   /// Creates attachment button widget.
   const AttachmentButton({
     super.key,
+    this.micColor,
     this.isLoading = false,
     this.onPressed,
     this.padding = EdgeInsets.zero,
   });
-
+  final Color? micColor;
   /// Show a loading indicator instead of the button.
   final bool isLoading;
 
@@ -49,7 +50,7 @@ class AttachmentButton extends StatelessWidget {
                   ),
                 )
               : InheritedChatTheme.of(context).theme.attachmentButtonIcon ??
-                Icon(Icons.keyboard_voice),
+                Icon(Icons.keyboard_voice,color: micColor),
                   //Image.asset(
                     //'assets/icon-attachment.png',
                     //color: InheritedChatTheme.of(context).theme.inputTextColor,
